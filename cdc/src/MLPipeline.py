@@ -163,7 +163,7 @@ def MLPipeline(path, data, label, vec, alg, cwt, feature, rep, k):
         MultinomialNB(), \
         #SVC(kernel='linear', probability=True, decision_function_shape='ovr', class_weight=class_wt), \
         CalibratedClassifierCV(base_estimator=LinearSVC(penalty='l2', loss='squared_hinge', C=1.0, multi_class='ovr', class_weight=class_wt, random_state=0, max_iter=1000), cv=5), \
-        CalibratedClassifierCV(base_estimator=SGDClassifier(loss='hinge', penalty='l2', alpha=0.0001, l1_ratio=0.15, fit_intercept=True, n_iter=5, shuffle=True, epsilon=0.1, n_jobs=-1, random_state=0, learning_rate='optimal', eta0=0.0, power_t=0.5, class_weight=class_wt), cv=5), \
+        CalibratedClassifierCV(base_estimator=SGDClassifier(loss='hinge', penalty='l2', alpha=0.0001, l1_ratio=0.15, fit_intercept=True, max_iter=5, shuffle=True, epsilon=0.1, n_jobs=-1, random_state=0, learning_rate='optimal', eta0=0.0, power_t=0.5, class_weight=class_wt), cv=5), \
         SVC(kernel='rbf', probability=True, decision_function_shape='ovr', class_weight=class_wt), \
         RandomForestClassifier(n_estimators=100, class_weight=class_wt, n_jobs=-1), \
         AdaBoostClassifier(n_estimators=100), \
