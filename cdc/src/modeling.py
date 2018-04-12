@@ -127,8 +127,8 @@ def main(argv):
     if datadir == '' and 'xx' not in locals():
         datadir = workdir + 'data/'
         print "No data provided, use sample data"
-        os.system("wget https://github.com/ckbjimmy/ckbjimmy.github.io/raw/master/docs/sample.tar.gz; \
-        wget https://raw.githubusercontent.com/ckbjimmy/ckbjimmy.github.io/master/docs/label.txt; \
+        os.system("wget https://github.com/ckbjimmy/ckbjimmy.github.io/raw/master/files/sample.tar.gz; \
+        wget https://raw.githubusercontent.com/ckbjimmy/ckbjimmy.github.io/master/files/label.txt; \
         tar -xzf sample.tar.gz; mv sample/ data/xml/; mv label.txt data/label.txt; rm sample.tar.gz")
         labelfile = datadir + 'label.txt'
         

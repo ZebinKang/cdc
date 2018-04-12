@@ -179,7 +179,7 @@ def MLPipeline(path, data, label, vec, alg, cwt, feature, rep, k):
     
     print "--- Data preprocessing ---"
     df = pd.read_csv(data, sep='\t')
-    df = df.sort('fname', ascending=True).reset_index(drop=True)
+    df = df.sort_values('fname', ascending=True).reset_index(drop=True)
     df['label'] = pd.read_csv(label, sep='\t', header=None)
     #for i in xrange(len(df.fname.tolist())):
     #    df.label[i] = re.sub(r"(.*)(.*)( \([0-9]+\).xml)", r"\1", df.fname.tolist()[i])
@@ -258,7 +258,7 @@ def MLPipeline(path, data, label, vec, alg, cwt, feature, rep, k):
                         dimension=600, window=10, subsample=1e-5, concept=c, stem=s, removeStopwords=r)
                     
                 featureMatrix['order'] = pd.Categorical(featureMatrix.index, categories=df.fname.values.tolist(), ordered=True)
-                X = featureMatrix.sort('order')
+                X = featureMatrix.sort_values('order')
                 del X['order']
     
             print str(X.shape)
