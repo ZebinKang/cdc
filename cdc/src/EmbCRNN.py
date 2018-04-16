@@ -271,7 +271,7 @@ def main():
             shuffle=True,
             callbacks=[early_stopping])
     history = pd.DataFrame(model_fit.history)
-    history.to_csv("model_history.txt", delimiter="\t")
+    history.to_csv("model_history.txt", sep="\t")
             
     # prediction
     print ''
