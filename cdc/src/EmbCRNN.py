@@ -175,6 +175,7 @@ def main():
     f_path = sys.argv[1]
     l_path = sys.argv[2]
     wemb_file = sys.argv[3]
+    batch_size = sys.argv[4]
     
     global vocabulary_size
     global max_words
@@ -263,15 +264,15 @@ def main():
     # training
     print ''
     print "--- Training ---"
-    early_stopping = EarlyStopping(monitor='val_loss', patience=5)
+    early_stopping = EarlyStopping(monitor='val_loss', patience=10)
     model_fit = model.fit(text_data_train, target_train, 
             validation_data=(text_data_test, target_test), 
             epochs=100, 
-            batch_size=64,
+            batch_size=int(float(batch_size)),
             shuffle=True,
             callbacks=[early_stopping])
     history = pd.DataFrame(model_fit.history)
-    history.to_csv("model_history.txt", sep="\t")
+    history.to_csv("model_history.txt", delimiter="\t")
             
     # prediction
     print ''
